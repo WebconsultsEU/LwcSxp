@@ -1,0 +1,40 @@
+<?php 
+/*
+ example pagination default 
+ * 
+ * @TODO: Make the route generally working without given one
+ */ ?>
+
+
+<?php if ($this->pageCount): ?>
+<div class="pagination">
+<!-- Previous page link -->
+<ul>
+    
+<?php if (isset($this->previous)): ?>
+    <li>
+        <a href="<?php echo $this->url("blogindex", array('page' => $this->previous)); ?>">&lt;&lt;</a>
+    </li>
+<?php else: ?>
+  <li class="disabled"><a href="#">&lt;&lt;</a></li>
+<?php endif; ?>
+
+<!-- Numbered page links -->
+<?php foreach ($this->pagesInRange as $page): ?>
+  
+    <li class=""<?php if ($page == $this->current): ?>active<?php endif; ?>">
+        <a href="<?php echo $this->url("blogindex", array('page' => $page)); ?>"> <?php echo $page; ?></a>
+    </li>  
+<?php endforeach; ?>
+
+<!-- Next page link -->
+<?php if (isset($this->next)): ?>
+<li><a href="<?php echo $this->url("blogindex", array('page' => $this->next)); ?>">
+    &gt;&gt;
+  </a>
+<?php else: ?>
+  <li class="disabled"><a href="#">&gt;&gt;</a></li>
+<?php endif; ?>
+</ul>  
+</div>
+<?php endif; ?>

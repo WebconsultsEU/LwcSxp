@@ -1,0 +1,18 @@
+{
+    "name": "lewildcode/blog",
+    "description": "Miniblog CMS for ZF2",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2"
+    ],
+    "homepage": "http://lewildcode.com/",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",        
+        "zf-commons/zfc-base": "dev-master",
+        "zf-commons/zfc-user": "dev-master",
+        "firephp/firephp-core": "dev-master"
+        
+    }
+}

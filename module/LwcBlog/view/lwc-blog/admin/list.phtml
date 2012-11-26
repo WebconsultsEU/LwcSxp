@@ -1,0 +1,33 @@
+<div class="well">
+    <a class="btn btn-primary " href="<?=$this->url('blogadmin', array('action' => 'edit')); ?>">new article</a>
+</div>
+     
+<div class="well">       
+<table class="table table-striped">
+<tr>    
+   <th>Title</th>    
+    <th>Created</th>
+    <th>Edit</th>
+</tr>
+<?php foreach($this->entrys as $entry): ?>
+<tr>    
+    <td>
+        <a href="<?=$this->url('blog', array('action' => 'entry', 'id'=> $entry->id, "slug" => $this->slugger->buildSlug($entry->title))); ?>">
+                    <?=$entry->title?>
+        </a>
+    </td>
+    <td>
+            <?=$entry->created?> 
+    </td>
+    <td>
+            <a class="btn btn-primary " href="<?=$this->url('blogadmin', array('action' => 'edit', 'id'=> $entry->id, "slug" => $this->slugger->buildSlug($entry->title))); ?>">edit article</a>
+    </td>
+</tr>
+        </div>
+        <?php endforeach; ?>
+<?php /* @TODO: paginator needs to be generalized */ ?>
+</div>
+</table>
+<?php echo $this->paginationControl($this->paginator, null, '/lwc-blog/blog/xpaging.phtml'); ?>    
+  
+    

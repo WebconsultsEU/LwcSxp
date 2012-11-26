@@ -1,0 +1,21 @@
+<?php $this->placeholder('h1')->set('TechBlog'); ?>
+<?php $this->placeholder('h2')->set('Blog Entrys'); ?>
+
+
+<h1>TechBlog</h1>
+<?php echo $this->paginationControl($this->paginator, null, '/lwc-blog/blog/xpaging.phtml'); ?>        
+        <?php foreach($this->entrys as $entry): ?>
+        <div class="well">            
+            <h3><a href="<?=$this->url('blog', array('action' => 'entry', 'id'=> $entry->id, "slug" => $this->slugger->buildSlug($entry->title))); ?>">
+                <?=$entry->title?>
+                </a>
+           </h3>
+               <?=$entry->text?> 
+            <br /><br />
+            <a class="btn btn-primary " href="<?=$this->url('blog', array('action' => 'entry', 'id'=> $entry->id, "slug" => $this->slugger->buildSlug($entry->title))); ?>">full article</a>
+            
+        </div>
+        <?php endforeach; ?>
+<?php echo $this->paginationControl($this->paginator, null, '/lwc-blog/blog/xpaging.phtml'); ?>    
+        
+    
